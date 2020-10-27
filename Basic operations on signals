@@ -1,0 +1,57 @@
+clear;
+clc;
+close all;
+
+tmin=-3;tmax=5;dt=0.02; % assign min ,max and stpe size for t
+t=tmin:dt:tmax;
+y0=y(t); % assign the givn value as y0
+y1=1.5*y(t);% Compute the scaled version of amplitude x(t)
+y2=y(2*t); % Compute the time compressed version of x(t)
+y3=y(t-0.5); % Compute the time shifted version of x(t)
+%-----------Amplitude scaling----------------------------%
+figure 
+subplot(2,1,1)
+plot(t,y0)
+axis([-2 2 0 4])
+xlabel('Time (sec)')
+ylabel('Amplitude') 
+title('Original Signal')
+
+subplot(2,1,2)
+plot(t,y1)
+axis([-2 2 0 4])
+xlabel('Time (sec)')
+ylabel('Amplitude')
+title('Amplitude scaled Signal')
+%-------------------Time Scaling-------------------------%
+figure 
+subplot(2,1,1)
+plot(t,y0)
+axis([-2 2 0 4])
+xlabel('Time (sec)')
+ylabel('Amplitude')
+title('Original Signal')
+subplot(2,1,2)
+plot(t,y2)
+axis([-2 2 0 4])
+xlabel('Time (sec)')
+ylabel('Amplitude') 
+title('Time scaled signal')
+%------------------Time Shifting--------------------------%
+figure 
+subplot(2,1,1)
+plot(t,y0)
+axis([-2 2 0 4])
+xlabel('Time (sec)')
+ylabel('Amplitude')
+title('Original Signal')
+subplot(2,1,2)
+plot(t,y3)
+axis([-2 2 0 4])
+xlabel('Time (sec)')
+ylabel('Amplitude') 
+title('Time shifted signal')
+%function to declare the given signal as function y(t)
+function x=y(t)
+x=(1.0+t).*(t>=0 & t<=1);
+end
