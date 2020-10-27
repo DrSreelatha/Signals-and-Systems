@@ -1,0 +1,14 @@
+clear all;
+clc;
+close all;
+% This program will plot unit step function,ramp function   
+t = (-1:0.01:1)';
+impulse = t==0;
+unitstep = t>=0;
+ramp = t.*unitstep;
+figure
+plot(t,[impulse])
+figure
+plot(t,[unitstep],'LineWidth',4)
+figure
+plot(t,[ramp])
