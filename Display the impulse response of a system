@@ -1,0 +1,16 @@
+close 
+clear;
+% to find the step response of a give system defined by
+%          s+1
+%        ________
+%         s^3+ s^2+2s+1
+
+num1=[1 1] % assign coefficients of numerator to a variable
+den1=[1 1 2 1] % assign coefficients of denominator to a variable
+sys1=tf(num1,den1) % assign the system using the 
+                   % 'tf'- transfer function in matlab
+grid; % set display with grid marks
+subplot(2,1,1);
+step(num1,den1) % Compute step response
+subplot(2,1,2);
+impulse(num1,den1) % Compute step response
